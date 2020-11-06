@@ -1,38 +1,86 @@
-class Stack {
+class MySet {
     constructor () {
-        this.count = 0
-        this.storage = []
+        this.collection = []
     }
 
-    push (value) {
-        this.storage[this.count] = value
-        this.count++
+    has (ele) {
+        return this.collection.indexOf(ele) !== -1
     }
 
-    pop () {
-        if (!this.count) return undefined
+    values () {
+        return this.collection
+    }
 
-        this.count--
-        const result = this.storage[this.count]
-        delete this.storage[this.count]
-        return result
+    add (ele) {
+        if (!this.has(ele)) {
+            this.collection.push(ele)
+            return true
+        }
+
+        return false
+    }
+
+    remove (ele) {
+        if (this.has(ele)) {
+            const index = this.collection.indexOf(ele)
+            this.collection.slice(index, 1)
+
+            return true
+        }
+
+        return false
     }
 
     size () {
-        return this.count
+        return this.collection.length
     }
 
-    peek () {
-        return this.storage[this.count - 1]
+    // From here, not included in built-in Set object
+    union (otherSet) {
+        const unionSet = new MySet()
+        const firstSet = this.values()
+        const secondSet = otherSet.values()
+
+        firstSet.map(e => unionSet.add(e))
+        secondSet.map(e => unionSet.add(e))
+
+        return unionSet
+    }
+
+    intersection (otherSet) {
+        const interSet = new MySet()
+        const firstSet = this.values()
+        firstSet.filter(e => otherSet.has(e)).map(e => interSet.add(e))
+
+        return interSet
+    }
+
+    difference (otherSet) {
+        const difSet = new MySet()
+        const firstSet = this.values()
+        firstSet.filter(e => !otherSet.has(e)).map(e => difSet.add(e))
+
+        return difSet
+    }
+
+    subset (otherSet) {
+        const firstSet = this.values()
+
+        return firstSet.every(value => otherSet.has(value))
     }
 }
 
-const myStack = new Stack()
+const setA = new MySet()
+const setB = new MySet()
 
-myStack.push(123)
-myStack.push(234)
-myStack.push(345)
-console.log(myStack)
-console.log('peek', myStack.peek())
-console.log('pop', myStack.pop())
-console.log('peek', myStack.peek())
+setA.add('a')
+setB.add('b')
+setB.add('c')
+setB.add('a')
+setB.add('d')
+
+console.log(setA)
+console.log(setB)
+
+console.log(setA.subset(setB))
+console.log(setA.intersection(setB).values())
