@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome</title>
+</head>
+<body style='font-family: sans-serif;'>
+    <h1>Palindrome</h1>
+    <input type="text" name="input" id="input" placeholder="Check palindrome">
+    <button id="button">Try again</button>
+    <p id="result">Type a word to check if it's a palindrome</p>
+    <br>
+    <pre>
+        const button = document.getElementById('button')
+        const input = document.getElementById('input')
+        const result = document.getElementById('result')
+
+        button.addEventListener('click', () => {
+            const letters = []
+            const word = input.value
+            let rword = ''
+
+            for (let i = 0; i < word.length; i++) {
+                letters.push(word[i])
+            }
+
+            for (let i = 0; i < word.length; i++) {
+                rword += letters.pop()
+            }
+
+            if (rword === word) {
+                result.innerHTML = word + ' is a palindrome'
+            } else {
+                result.innerHTML = word + ' is not a palindrome'
+            }
+        })
+    </pre>
+    <script src="palindrome.js"></script>
+</body>
+</html>

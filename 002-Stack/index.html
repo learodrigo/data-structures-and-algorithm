@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack</title>
+</head>
+<body style='font-family: sans-serif;'>
+    <h1>Stack</h1>
+    <p id="result">Check console</p>
+    <p>
+        <pre>
+            myStack.push(123)
+            myStack.push(234)
+            myStack.push(345)
+            console.log(myStack)
+            console.log('peek', myStack.peek())
+            console.log('pop', myStack.pop())
+            console.log('peek', myStack.peek())
+
+            class Stack {
+                constructor () {
+                    this.count = 0
+                    this.storage = []
+                }
+
+                push (value) {
+                    this.storage[this.count] = value
+                    this.count++
+                }
+
+                pop () {
+                    if (!this.count) return undefined
+
+                    this.count--
+                    const result = this.storage[this.count]
+                    delete this.storage[this.count]
+                    return result
+                }
+
+                size () {
+                    return this.count
+                }
+
+                peek () {
+                    return this.storage[this.count - 1]
+                }
+            }
+        </pre>
+    <p>
+    <script src="stack.js"></script>
+</body>
+</html>
