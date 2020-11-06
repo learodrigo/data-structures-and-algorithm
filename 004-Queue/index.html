@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queue</title>
+</head>
+<body style='font-family: sans-serif;'>
+    <h1><a href="index.html">Queue</a> - <a href="priorityQueue.html">Priority queue</a></h1>
+    <p id="result">Check console</p>
+    <pre>
+        const q = new Queue()
+        q.enqueue('a')
+        q.enqueue('b')
+        q.enqueue('c')
+        q.print()               // (3) ["a", "b", "c"]
+        q.dequeue()
+        console.log(q.front())  // b
+        q.print()               // (2) ["b", "c"]
+
+        class Queue {
+            constructor () {
+                this.collection = []
+            }
+
+            print () {
+                console.log(this.collection)
+            }
+
+            enqueue (ele) {
+                this.collection.push(ele)
+            }
+
+            dequeue () {
+                this.collection.shift()
+            }
+
+            front () {
+                return this.collection[0]
+            }
+
+            size () {
+                return this.collection.length
+            }
+
+            isEmpty () {
+                return this.collection.length === 0
+            }
+        }
+    </pre>
+    <script src="queue.js"></script>
+</body>
+</html>

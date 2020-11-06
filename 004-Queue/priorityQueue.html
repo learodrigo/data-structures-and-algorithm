@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priority queue</title>
+</head>
+<body style='font-family: sans-serif;'>
+    <h1><a href="index.html">Queue</a> - <a href="priorityQueue.html">Priority queue</a></h1>
+    <p id="result">Check console</p>
+    <pre>
+        const pq = new PriorityQueue()
+        pq.enqueue(['Beau Carnes', 2])
+        pq.enqueue(['Quincy Larson', 3])
+        pq.enqueue(['Ewa Mitulska-Wojcik', 1])
+        pq.enqueue(['Brian Swift', 2])
+        pq.print()
+        pq.dequeue()
+        console.log(pq.front())
+        pq.print()
+
+        class PriorityQueue {
+            constructor () {
+                this.collection = []
+            }
+
+            print () {
+                console.log(this.collection)
+            }
+
+            enqueue (ele) {
+                if (this.isEmpty()) {
+                    this.collection.push(ele)
+                } else {
+                    let added = false
+
+                    for (let i = 0; i < this.collection.length; i++) {
+                        if (ele[1] < this.collection[i][1]) {
+                            this.collection.splice(i, 0, ele)
+                            added = true
+                            break
+                        }
+                    }
+
+                    if (!added) this.collection.push(ele)
+                }
+            }
+
+            dequeue () {
+                const value = this.collection.shift()
+                return value[0]
+            }
+
+            front () {
+                return this.collection[0]
+            }
+
+            size () {
+                return this.collection.length
+            }
+
+            isEmpty () {
+                this.collection.length === 0
+            }
+        }
+    </pre>
+    <script src="priorityQueue.js"></script>
+</body>
+</html>
