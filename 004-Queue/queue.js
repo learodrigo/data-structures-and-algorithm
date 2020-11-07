@@ -30,12 +30,18 @@ class Queue {
 
 console.log('---- Normal queue')
 
-const q = new Queue()
+const queue = new Queue()
 
-q.enqueue('a')
-q.enqueue('b')
-q.enqueue('c')
-q.print()
-q.dequeue()
-console.log(q.front())
-q.print()
+queue.enqueue('a')
+queue.enqueue('b')
+queue.enqueue('c')
+
+queue.print()
+
+queue.dequeue()
+
+console.log(queue.front())
+
+queue.print()
+
+console.log(queue)

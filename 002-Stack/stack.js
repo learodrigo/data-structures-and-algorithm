@@ -32,7 +32,11 @@ const myStack = new Stack()
 myStack.push(123)
 myStack.push(234)
 myStack.push(345)
+
 console.log(myStack)
+
 console.log('peek', myStack.peek())
 console.log('pop', myStack.pop())
 console.log('peek', myStack.peek())
+
+console.log(myStack)

@@ -84,3 +84,6 @@ console.log(setB)
 
 console.log(setA.subset(setB))
 console.log(setA.intersection(setB).values())
+
+console.log('setA', setA)
+console.log('setB', setB)

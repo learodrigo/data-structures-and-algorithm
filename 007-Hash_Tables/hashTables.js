@@ -65,11 +65,13 @@ class HashTable {
     }
 }
 
-const ht = new HashTable()
-ht.add('beau', 'person')
-ht.add('fido', 'dog')
-ht.add('rex', 'dinosour')
-ht.add('tux', 'penguin')
+const hashTable = new HashTable()
+hashTable.add('beau', 'person')
+hashTable.add('fido', 'dog')
+hashTable.add('rex', 'dinosour')
+hashTable.add('tux', 'penguin')
 
-console.log('lookup(tux):', ht.lookup('tux'))
-ht.print()
+console.log('lookup(tux):', hashTable.lookup('tux'))
+hashTable.print()
+
+console.log(hashTable)

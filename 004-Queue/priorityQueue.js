@@ -45,13 +45,19 @@ class PriorityQueue {
 
 console.log('---- Priority queue')
 
-const pq = new PriorityQueue()
+const priorityQueue = new PriorityQueue()
 
-pq.enqueue(['Beau Carnes', 2])
-pq.enqueue(['Quincy Larson', 3])
-pq.enqueue(['Ewa Mitulska-Wojcik', 1])
-pq.enqueue(['Brian Swift', 2])
-pq.print()
-pq.dequeue()
-console.log('front', pq.front())
-pq.print()
+priorityQueue.enqueue(['Beau Carnes', 2])
+priorityQueue.enqueue(['Quincy Larson', 3])
+priorityQueue.enqueue(['Ewa Mitulska-Wojcik', 1])
+priorityQueue.enqueue(['Brian Swift', 2])
+
+priorityQueue.print()
+
+priorityQueue.dequeue()
+
+console.log('front', priorityQueue.front())
+
+priorityQueue.print()
+
+console.log(priorityQueue)

@@ -147,3 +147,5 @@ console.log(linkedList.removeAt(3))
 console.log(linkedList.elementAt(3))
 console.log(linkedList.indexOf('Puppy'))
 console.log(linkedList.size())
+
+console.log(linkedList)
